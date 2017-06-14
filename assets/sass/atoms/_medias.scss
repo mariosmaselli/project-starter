@@ -1,0 +1,34 @@
+/* -----
+Media Queries
+----- */
+$mobile:      "only screen and (max-width: 679px)";
+$tablet:      "only screen and (min-width: 680px)";
+$desktop:     "only screen and (min-width: 1025px)";
+$desktop-xl:  "only screen and (min-width: 1129px)";
+
+
+@media #{$mobile} {
+	
+	.not-mobile{
+		display: none;
+	}
+}
+
+@media #{$tablet} {
+	
+	.not-mobile{
+		display: none;
+	}
+}
+
+
+@media #{$desktop} {
+	
+	.not-desktop{
+		display: none;
+	}
+
+	.not-mobile{
+		display: block;
+	}
+}

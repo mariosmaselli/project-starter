@@ -1,0 +1,14 @@
+/* -----
+Preloader
+----- */
+.preloader {
+    @include fixed;
+    @include size(100%,100%);
+    
+    background:$darkblue;
+    position:relative;
+    text-align: center;
+    z-index: 1;
+
+    
+}

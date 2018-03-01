@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var history = require('connect-history-api-fallback');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 

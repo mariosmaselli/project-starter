@@ -29,7 +29,7 @@ gulp.task('serve', ['sass', 'lint', 'js'], function() {
 
 	gulp.watch('assets/sass/**/*.scss', ['sass']);
 	gulp.watch('assets/js/**/*.js', ['js', 'lint']);
-	//gulp.watch('templates/*.ejs', ['ejs']);
+	//gulp.watch('templates/**/*.ejs', ['ejs']);
 
 	 //gulp.watch(['*.html', 'build/*.css', 'build/*.js'], {cwd: ''}, reload);
 	

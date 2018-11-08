@@ -1,12 +1,8 @@
 
 @charset "UTF-8";
 
-/* 
-  Current sass allows to import static .css files
-   by adding a ~ a the beginning of the string and
-   by specifying that is a css file (this may change in the future) 
-*/
-@import '~node_modules/normalize.css/normalize.css';
+
+@import 'node_modules/normalize.css/normalize';
 
 @import "modules/variables";
 @import "modules/mixins";
@@ -15,7 +11,6 @@
 @import "modules/medias";
 @import "modules/preloader";
 @import "modules/keyframes";
-
 
 
 

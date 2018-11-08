@@ -5,7 +5,6 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import browserify from 'browserify';
 import watchify from 'watchify';
-import babelify from 'babelify'
 
 import gutil from 'gulp-util';
 import uglify from 'gulp-uglify';
@@ -30,7 +29,6 @@ const bundler = envDev ? watchify(b) : b;
 
 const bundle = (done) => {
   bundleLogger.start();
-
   return bundler
     .bundle()
     .on('error', handleErrors)
@@ -52,7 +50,6 @@ const bundle = (done) => {
     })
     .pipe(gulp.dest(`${config.dist}/scripts`));
 };
-
 
 if (envDev) {
   bundler.on('update', bundle);

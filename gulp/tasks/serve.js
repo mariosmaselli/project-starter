@@ -1,36 +1,26 @@
-'use strict';
+import browserSync from 'browser-sync';
 
-var gulp = require('gulp');
-var history = require('connect-history-api-fallback');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
+import config from '../config';
 
-//Add 'ejs', if needed
+export const server = browserSync.create();
 
-gulp.task('serve', ['sass', 'lint', 'js'], function() {
-	
-	// browserSync({
-	// 	notify: false,
-	// 	server: {
-	// 		baseDir: './',
-	// 		middleware: [ history() ]
-	// 	}
-	// });
+export function reload(done) {
+  server.reload();
+  done();
+}
 
-	//If you are using EJS uncomment this section not the avobe
-	// browserSync({
-	// 	notify: false,
-	// 	server: {
-	// 		baseDir: './build',
-	// 		middleware: [ history() ]
-	// 	}
-	// });
-	
+export function serve(done) {
+  const logLevel = config.verbose ? 'debug' : 'info';
 
-	gulp.watch('assets/sass/**/*.scss', ['sass']);
-	gulp.watch('assets/js/**/*.js', ['js', 'lint']);
-	//gulp.watch('templates/**/*.ejs', ['ejs']);
+  server.init({
+    server: {
+      baseDir: config.dist,
+      directory: true
+    },
+    port: config.port,
+    logConnections: true,
+    logLevel
+  }, done);
+}
 
-	 //gulp.watch(['*.html', 'build/*.css', 'build/*.js'], {cwd: ''}, reload);
-	
-});
+serve.description = 'Serve dist directory using browserSync.';

@@ -1,38 +1,50 @@
-'use strict';
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
 
+import autoprefixer from 'autoprefixer';
+import postcss from 'gulp-postcss';
+import sourcemaps from 'gulp-sourcemaps';
+import gutil from 'gulp-util';
 
-var gulp            = require('gulp');
-var plumber         = require('gulp-plumber');
-var sass            = require('gulp-sass');
-var sourcemaps      = require('gulp-sourcemaps');
-var autoprefixer    = require('gulp-autoprefixer');
-var browserSync     = require('browser-sync'); 
-var cssnano         = require('gulp-cssnano');
-var rename          = require('gulp-rename');
+import preprocessor from 'gulp-sass';
+import sassGlob from 'gulp-sass-glob';
 
+import config from '../config';
+import { server } from './serve';
 
-gulp.task('sass', function() {
-    gulp.src('assets/sass/styles.scss')
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
-        }))
+import handleErrors from '../utils/handleErrors';
+
+const envDev = config.args.env === 'dev';
+
+let processors = [
+  autoprefixer({
+    browsers: config.browsers
+  })
+];
+
+function getStylesStream() {
+  return gulp.src(`${config.src}/scss/main.scss`)
+        .pipe(sassGlob())
         .pipe(sourcemaps.init())
-        .pipe(sass({
-                errLogToConsole: false,
-                outputStyle: 'compressed',
-                //outputStyle: 'compact',
-                // outputStyle: 'expanded',
-        }))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        //.pipe(cssnano())
-        .pipe(sourcemaps.write('.'))
-        .pipe(rename("app.min.css"))
-        .pipe(gulp.dest('build/'))
-        .pipe(browserSync.stream());
-});
+        .pipe(preprocessor());
+}
+
+
+export function processStyles() {
+  return getStylesStream()
+    // .pipe(plumber({
+    //   errorHandler: function (err) {
+    //     console.log(err);
+    //     this.emit('end');
+    //   }
+    // }))
+    .on('error', handleErrors)
+    .pipe(postcss(processors))
+    .pipe(envDev ? sourcemaps.write() : gutil.noop())
+    .pipe(envDev ? gutil.noop() : header(config.banner))
+    .pipe(envDev ? gutil.noop() : rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(`${config.dist}/styles`))
+    .pipe(server.stream());
+}

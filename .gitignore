@@ -1,9 +1,4 @@
 .DS_Store
-.env
-*.log
 .sass-cache
-/build
-**/vendor/.git
-**/vendor/**/.git
-**/node_modules
-package-lock.json
+node_modules
+build/*

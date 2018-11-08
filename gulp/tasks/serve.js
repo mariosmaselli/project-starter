@@ -15,10 +15,10 @@ export function serve(done) {
   server.init({
     server: {
       baseDir: config.dist,
-      directory: true
+      directory: false
     },
     port: config.port,
-    logConnections: true,
+    logConnections: false,
     logLevel
   }, done);
 }

@@ -5,6 +5,10 @@
   "description": "An ES6 boilerplate using Gulp 4 as build system.",
   "author": "mariosmaselli",
   "homepage": "https://github.com/mariosmaselli/project-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariosmaselli/project-starter"
+  },
   "license": "MIT",
   "vendors": [],
   "dependencies": {
@@ -14,8 +18,13 @@
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/register": "^7.0.0",
+    "acorn": "^6.0.4",
+    "aliasify": "^2.1.0",
     "autoprefixer": "^9.3.1",
+    "babelify": "^10.0.0",
+    "brfs": "^2.0.1",
     "browser-sync": "^2.26.3",
+    "browserify": "^16.2.3",
     "chalk": "^2.4.1",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0-beta.2",
@@ -25,13 +34,23 @@
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "pretty-hrtime": "^1.0.3",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.0"
   },
   "directories": {
     "src": "./src",
     "dist": "./dist",
     "test": "./test"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "config": {
     "verbose": false,
@@ -43,5 +62,11 @@
   "extensions": {
     "scripts": "js",
     "styles": "css"
+  },
+  "browserify": {
+    "transform": [
+      "brfs",
+      "babelify"
+    ]
   }
 }

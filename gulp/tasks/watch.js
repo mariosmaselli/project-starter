@@ -2,8 +2,8 @@ import gulp from 'gulp';
 import chalk from 'chalk';
 import config from '../config';
 
-import { reload } from './serve';
 import { processStyles } from './styles';
+import { bundleVendor } from './scripts';
 
 function onWatchChange(filePath) {
   console.log(`Updating File ${chalk.hex('#fff116').underline(filePath)}`);
@@ -20,11 +20,16 @@ function addEventsHandlers(watcher) {
 export function watch(done) {
 
   const watchers = [
+
     // Watch styles files
     gulp.watch(
       `${config.src}/scss/**/*.scss`,
       processStyles
-    )
+    ),
+    
+    // Watch package.json file
+    gulp.watch('package.json')
+
   ]
   
   watchers.map(watcher => addEventsHandlers(watcher));

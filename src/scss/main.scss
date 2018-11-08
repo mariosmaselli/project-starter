@@ -1,13 +1,16 @@
 
+@charset "UTF-8";
 
-@import "vendor/normalize";
-@import "atoms/variables";
-@import "atoms/mixins";
-@import "atoms/grid";
-@import "atoms/fonts";
-@import "atoms/medias";
-@import "atoms/preloader";
-@import "atoms/keyframes";
+
+@import 'node_modules/normalize.css/normalize';
+
+@import "modules/variables";
+@import "modules/mixins";
+@import "modules/grid";
+@import "modules/fonts";
+@import "modules/medias";
+@import "modules/preloader";
+@import "modules/keyframes";
 
 
 
@@ -39,7 +42,8 @@ html {
 
 	font: 10px $realeway;
 	font-weight: $medium;
-	line-height: 1.7;
+  line-height: 1.7;
+  height: 100vw;
 
 }
 

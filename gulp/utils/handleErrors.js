@@ -1,8 +1,8 @@
 import notify from 'gulp-notify';
-import gutil from 'gulp-util';
+import beeper from 'beeper'
 
 export default function (...args) {
-  gutil.beep();
+  beeper();
 
   // End the task
   this.emit('end');

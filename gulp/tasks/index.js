@@ -7,6 +7,7 @@ import config from '../config';
 
 import { processStyles } from './styles';
 import { bundleApp, bundleVendor } from './scripts';
+import { optimizeImages, svgo } from './images';
 import { serve } from './serve';
 import { watch } from './watch';
 
@@ -28,6 +29,13 @@ const stylesTask = gulp.task('styles');
 stylesTask.description =
   'Compile sass/less/stylus files with sourcemaps + autoprefixer and convert fonts.';
 
+gulp.task(
+  'images',
+  gulp.parallel(optimizeImages, svgo)
+);
+const imagesTask = gulp.task('images');
+imagesTask.description =
+  'Optimize new images and cache them, create a spritesheet and generate favicons/metas.';
 
 // Utils
 gulp.task(serve);
@@ -43,7 +51,7 @@ buildTask.description = 'Build scripts and styles with minification tasks.';
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel('styles', 'scripts'),
+    gulp.parallel('styles', 'scripts', 'images'),
     gulp.parallel(serve, watch)
   )
 );

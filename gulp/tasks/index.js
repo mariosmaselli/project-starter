@@ -6,14 +6,15 @@ import gulp from 'gulp';
 import config from '../config';
 
 import { processStyles } from './styles';
-import { bundleApp } from './scripts';
+import { bundleApp, bundleVendor } from './scripts';
 import { serve } from './serve';
 import { watch } from './watch';
 
+gulp.task(bundleVendor)
 
 gulp.task(
   'scripts',
-  gulp.parallel(bundleApp)
+  gulp.parallel(bundleApp, bundleVendor)
 );
 const scriptTask = gulp.task('scripts');
 scriptTask.description = 'Bundle app scripts with browserify (watchify)';
@@ -32,6 +33,12 @@ stylesTask.description =
 gulp.task(serve);
 gulp.task(watch);
 
+gulp.task(
+  'build',
+  gulp.parallel('scripts', 'styles')
+);
+const buildTask = gulp.task('build');
+buildTask.description = 'Build scripts and styles with minification tasks.';
 
 gulp.task(
   'default',

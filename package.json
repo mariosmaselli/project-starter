@@ -12,9 +12,7 @@
   "license": "MIT",
   "vendors": [],
   "dependencies": {
-    "@mariosmaselli/ms-h": "^1.0.3",
-    "dom-classes": "^1.0.0",
-    "gulp-tinypng": "^1.0.2",
+    "gulp-tinypng": "git://github.com/mariosmaselli/gulp-tinypng.git",
     "lodash.assign": "^4.2.0",
     "normalize.css": "git://github.com/necolas/normalize.css.git#3.0.3"
   },

@@ -28,7 +28,7 @@ export function watch(done) {
     ),
     
     // Watch package.json file
-    gulp.watch('package.json')
+    gulp.watch('package.json', bundleVendor)
 
   ]
   

@@ -6,7 +6,7 @@ import buffer from 'vinyl-buffer';
 import browserify from 'browserify';
 import watchify from 'watchify';
 
-import gutil from 'gulp-util';
+import through2 from 'through2';
 import uglify from 'gulp-uglify';
 import header from 'gulp-header';
 import rename from 'gulp-rename';
@@ -38,10 +38,10 @@ const bundle = (done) => {
     .on('error', handleErrors)
     .pipe(source('main.js'))
     .pipe(buffer())
-    .pipe(envDev ? gutil.noop() : uglify())
+    .pipe(envDev ? through2.obj() : uglify())
     .on('error', handleErrors)
-    .pipe(envDev ? gutil.noop() : header(config.banner))
-    .pipe(envDev ? gutil.noop() : rename({
+    .pipe(envDev ? through2.obj() : header(config.banner))
+    .pipe(envDev ? through2.obj() : rename({
       suffix: '.min'
     }))
     .on('end', () => {

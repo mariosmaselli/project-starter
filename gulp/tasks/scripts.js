@@ -20,7 +20,7 @@ import concatenateFiles from '../utils/concatenateFiles';
 const envDev = config.args.env === 'dev';
 
 const b = browserify({
-  entries: [`${config.src}/js/main.js`],
+  entries: [`${config.src}/scripts/main.js`],
   extensions: [config.extensions.scripts],
   debug: envDev,
   cache: {},

@@ -29,6 +29,7 @@
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
     "chalk": "^2.4.1",
+    "favicons": "^5.2.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-cache": "^1.0.2",
@@ -45,6 +46,7 @@
     "gulp-svgmin": "^2.1.0",
     "gulp-uglify": "^3.0.1",
     "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
     "pretty-hrtime": "^1.0.3",
     "through2": "^3.0.0",
     "vinyl-buffer": "^1.0.1",
@@ -65,7 +67,14 @@
     "port": 3000,
     "browsers": [
       "last 2 version"
-    ]
+    ],
+    "prodURL": "http://domain.tld",
+    "shareImageURL": "http://domain.tld/static/share.png",
+    "twitterImage": "https://domain.tld/static/twitter.png",
+    "twitterHandle": "@domain",
+    "themeColor": "#eeeeee",
+    "analyticsUA": "UA-XXXXX-X",
+    "developerURL": ""
   },
   "extensions": {
     "scripts": "js",

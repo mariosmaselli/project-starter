@@ -23,7 +23,7 @@ export function watch(done) {
 
     // Watch styles files
     gulp.watch(
-      `${config.src}/scss/**/*.scss`,
+      `${config.src}/styles/**/*.scss`,
       processStyles
     ),
     

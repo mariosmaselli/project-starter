@@ -27,7 +27,7 @@ let processors = [
 ];
 
 function getStylesStream() {
-  return gulp.src(`${config.src}/scss/main.scss`)
+  return gulp.src(`${config.src}/styles/main.scss`)
         .pipe(sassGlob())
         .pipe(sourcemaps.init())
         .pipe(preprocessor());

@@ -7,7 +7,7 @@ import config from '../config';
 
 import { processStyles } from './styles';
 import { bundleApp, bundleVendor } from './scripts';
-import { optimizeImages, svgo } from './images';
+import { optimizeImages, svgo, generateFavicons } from './images';
 import { serve } from './serve';
 import { watch } from './watch';
 
@@ -31,7 +31,7 @@ stylesTask.description =
 
 gulp.task(
   'images',
-  gulp.parallel(optimizeImages, svgo)
+  gulp.parallel(optimizeImages, svgo, generateFavicons)
 );
 const imagesTask = gulp.task('images');
 imagesTask.description =

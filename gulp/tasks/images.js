@@ -110,9 +110,9 @@ export function generateFavicons(done) {
       );
     }
 
-    // if (response.html) {
-    //   fs.writeFileSync(`${config.src}/inc/_favicons.html`, response.html.join('\n'));
-    // }
+    if (response.html) {
+      fs.writeFileSync(`${config.src}/views/header/favicons.ejs`, response.html.join('\n'));
+    }
 
     done();
   });

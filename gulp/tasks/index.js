@@ -5,12 +5,14 @@
 import gulp from 'gulp';
 import config from '../config';
 
+import { markup } from './markup';
 import { processStyles } from './styles';
 import { bundleApp, bundleVendor } from './scripts';
 import { optimizeImages, svgo, generateFavicons } from './images';
 import { serve } from './serve';
 import { watch } from './watch';
 
+gulp.task(markup);
 gulp.task(bundleVendor)
 
 gulp.task(
@@ -51,7 +53,7 @@ buildTask.description = 'Build scripts and styles with minification tasks.';
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel('styles', 'scripts', 'images'),
+    gulp.parallel(markup, 'styles', 'scripts', 'images'),
     gulp.parallel(serve, watch)
   )
 );

@@ -12,6 +12,7 @@
   "license": "MIT",
   "vendors": [],
   "dependencies": {
+    "gulp-htmlmin": "^5.0.1",
     "gulp-tinypng": "git://github.com/mariosmaselli/gulp-tinypng.git",
     "lodash.assign": "^4.2.0",
     "normalize.css": "git://github.com/necolas/normalize.css.git#3.0.3"
@@ -29,11 +30,13 @@
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
     "chalk": "^2.4.1",
+    "del": "^3.0.0",
     "favicons": "^5.2.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-ejs": "^3.3.0",
     "gulp-header": "^2.0.5",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",

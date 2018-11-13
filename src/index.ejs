@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <%- include views/header/meta %>
+
+  <title>Gulp Frontend Boilerplate</title>
+
+  <% if (context.ENV == 'dev') { %>
+	  <link rel="stylesheet" href="styles/main.css">
+  <% } %>
+
+	<% if (context.ENV == 'prod') { %>
+	  <link rel="stylesheet" href="styles/main.min.css">
+  <% } %>
+
+  <%- include views/header/browsehappy %>
+  <%- include views/header/favicons %>
+
+</head>
+
+  
+  <main></main>
+
+
+  <% if (context.ENV == 'dev') { %>
+	<script src="scripts/vendor.js"></script>
+	<script src="scripts/main.js"></script>
+	<% } %>
+	<% if (context.ENV == 'prod') { %>
+	<script src="scripts/vendor.min.js"></script>
+	<script src="scripts/main.min.js"></script>
+	<% } %>
+
+</body>
+</html>

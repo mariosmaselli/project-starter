@@ -1,34 +1,26 @@
-/* -----
-Media Queries
------ */
-$mobile:      "only screen and (max-width: 679px)";
-$tablet:      "only screen and (min-width: 680px)";
-$desktop:     "only screen and (min-width: 1025px)";
-$desktop-xl:  "only screen and (min-width: 1129px)";
+
+// Breakpoints.
+$b_xs_start: 320px;
+$b_xs_end: 500px;
+$b_s_start: 501px;
+$b_s_end: 719px;
+$b_m_start: 720px;
+$b_m_end: 1023px;
+$b_l_start: 1024px;
+$b_xl_start: 1280px;
+$b_xxl_start: 1440px;
+$b_xxxl_start: 1600px;
 
 
-@media #{$mobile} {
-	
-	.not-mobile{
-		display: none;
-	}
-}
-
-@media #{$tablet} {
-	
-	.not-mobile{
-		display: none;
-	}
-}
-
-
-@media #{$desktop} {
-	
-	.not-desktop{
-		display: none;
-	}
-
-	.not-mobile{
-		display: block;
-	}
-}
+$breakpoints: (
+"b-xs"          "screen and (max-width: #{$b_xs_end})",
+"b-s"           "screen and (min-width: #{$b_s_start}) and (max-width: #{$b_s_end})",
+"b-s-up"        "screen and (min-width: #{$b_s_start})",
+"b-m"           "screen and (min-width: #{$b_m_start}) and (max-width: #{$b_m_end})",
+"b-m-up"        "screen and (min-width: #{$b_m_start})",
+"b-l-up"        "screen and (min-width: #{$b_l_start})",
+"b-xl-up"       "screen and (min-width: #{$b_xl_start})",
+"b-xxl-up"      "screen and (min-width: #{$b_xxl_start})",
+"b-xxxl-up"      "screen and (min-width: #{$b_xxxl_start})",
+"retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+);

@@ -1,24 +1,47 @@
 /* -----
-Typography, WebFonts
+Font Family
 ----- */
-// @font-face {
-//   font-family: 'didot-regular';
-//   src: url('#{$fonts-path}/TheanoDidot-Regular.eot');
-//   src: url('#{$fonts-path}/TheanoDidot-Regular.eot?#iefix') format('embedded-opentype'),
-//        url('#{$fonts-path}/TheanoDidot-Regular.woff') format('woff'),
-//        url('#{$fonts-path}/TheanoDidot-Regular.ttf') format('truetype'),
-//        url('#{$fonts-path}/TheanoDidot-Regular.svg') format('svg');
-//   font-style: normal;
-  
-// }
+$calibre:'Calibre Regular', sans-serif;
+$calibresm:'Calibre Semibold', sans-serif;
+$eksell:'Eksell Display', sans-serif;
+$font: $calibre;
 
-// @font-face {
-//   font-family: 'arca-heavy';
-//   src: url('#{$fonts-path}/Arca-Heavy.eot');
-//   src: url('#{$fonts-path}/Arca-Heavy.eot?#iefix') format('embedded-opentype'),
-//        url('#{$fonts-path}/Arca-Heavy.woff') format('woff'),
-//        url('#{$fonts-path}/Arca-Heavy.ttf') format('truetype'),
-//        url('#{$fonts-path}/Arca-Heavy.svg') format('svg');
-//   font-style: normal;
+
+/* -----
+Font Weight
+----- */
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+
+
+p, li, span, div, a {
   
-// }
+  font-family: $calibre;
+  
+  @include font-size(16, $mobile);
+
+  @include media-query("b-s-up") {
+
+    @include font-size(18, $tablet);
+  }
+
+  @include media-query("b-m-up") {
+    @include font-size(18, $desktop);
+  }
+
+}
+
+p {
+  margin-bottom : tovw(30, $mobile);
+
+  @include media-query("b-s-up") {
+    margin-bottom : tovw(30, $desktop);
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

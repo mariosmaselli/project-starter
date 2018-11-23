@@ -52,3 +52,39 @@ export function processStyles() {
     .pipe(gulp.dest(`${config.dist}/styles`))
     .pipe(server.stream());
 }
+
+function concatenateFonts() {
+  return gulp.src(`${config.dist}/assets/fonts/*.css`)
+    .pipe(concatCss("fonts.css"))
+    .pipe(gulp.dest(`${config.dist}/assets/fonts`))
+}
+
+export function generateFonts(done) {
+  const fontmin = new Fontmin()
+    .src(`${config.src}/assets/fonts/*.{ttf,otf}`)
+    .use(Fontmin.otf2ttf({
+      clone: true
+    }))
+    .use(Fontmin.ttf2eot({
+      clone: true
+    }))
+    .use(Fontmin.ttf2woff({
+      clone: true
+    }))
+    .use(Fontmin.ttf2svg({
+      clone: true
+    }))
+    .use(Fontmin.css({
+      fontPath: './',
+      //local: true  
+    }))
+    .dest(`${config.dist}/assets/fonts`)
+    if(done) concatenateFonts()
+
+  return fontmin.run((err) => {
+    if (err) {
+      console.log(err);
+    }
+    done();
+  });
+}

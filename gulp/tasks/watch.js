@@ -40,7 +40,7 @@ export function watch(done) {
     gulp.watch('package.json', bundleVendor),
 
     // Watch images files
-    gulp.watch([`${config.src}/images/**/*`], optimizeImages)
+    gulp.watch([`${config.src}/assets/images/**/*`], optimizeImages)
 
   ]
   

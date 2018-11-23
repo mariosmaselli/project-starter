@@ -12,10 +12,10 @@
   "license": "MIT",
   "vendors": [],
   "dependencies": {
+    "dom-select": "^1.1.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-tinypng": "git://github.com/mariosmaselli/gulp-tinypng.git",
-    "lodash.assign": "^4.2.0",
-    "normalize.css": "git://github.com/necolas/normalize.css.git#3.0.3"
+    "lodash.assign": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
@@ -85,7 +85,6 @@
   },
   "browserify": {
     "transform": [
-      "aliasify",
       "brfs",
       "babelify"
     ]

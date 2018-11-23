@@ -67,7 +67,7 @@ export function generateFavicons(done) {
     appDescription: config.description,
     developerName: config.author,
     developerURL: config.developerURL,
-    background: 'transparent',
+    background: '#fff',
     path: 'assets/favicon/',
     url: 'images/share.jpg',
     display: 'standalone',

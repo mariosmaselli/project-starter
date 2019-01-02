@@ -1,5 +1,11 @@
 
 // Breakpoints.
+
+/*
+Usage
+@include media-query("b-s-up") {}
+*/
+
 $b_xs_start: 320px;
 $b_xs_end: 500px;
 $b_s_start: 501px;

@@ -2,8 +2,6 @@
 Font Family
 ----- */
 $calibre:'Calibre Regular', sans-serif;
-$calibresm:'Calibre Semibold', sans-serif;
-$eksell:'Eksell Display', sans-serif;
 $font: $calibre;
 
 
@@ -19,7 +17,7 @@ $extrabold: 800;
 
 p, li, span, div, a {
   
-  font-family: $calibre;
+  font-family: $font;
   
   @include font-size(16, $mobile);
 

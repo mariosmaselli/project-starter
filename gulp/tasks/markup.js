@@ -7,21 +7,16 @@ import del from 'del';
 
 import config from '../config';
 
-function deleteHtml(done) {
-  return del([
-    `${config.src}/*.html`,
-  ], done);
-}
-
-function minifyhtml() {
-  return gulp.src(`${config.src}/*.html`)
+export function minifyhtml() {
+  return gulp.src(`${config.dist}/*.html`)
   .pipe(htmlmin({ collapseWhitespace: true }))
   .on('error', handleErrors)
   .pipe(gulp.dest(config.dist))
-  .on('end', deleteHtml);
+  
 }
 
-minifyhtml.description = 'Minify HTML'
+minifyhtml.description = 'Minify HTML Files'
+
 
 export function markup() {
   return gulp.src(`${config.src}/*.ejs`, {

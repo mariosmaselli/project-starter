@@ -86,7 +86,7 @@ if (config.args.env === 'dev') {
   gulp.task(
     'default',
     gulp.series(
-      gulp.parallel(markup, 'images'),
+      gulp.parallel(markup, minifyhtml, 'images'),
       'build'
     )
   );

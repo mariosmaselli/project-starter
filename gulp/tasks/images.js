@@ -6,13 +6,10 @@ import newer from 'gulp-newer';
 import cache from 'gulp-cache';
 import favicons from 'favicons';
 import mkdirp from 'mkdirp';
-
 import config from '../config';
-
 import passwords from '../utils/passwords';
 
-const TINYPNG_API = passwords ? passwords.tinypng : "YOUR_KEY";
-
+const TINYPNG_API = passwords ? passwords.tinypng : "8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2";
 
 export function optimizeImages() {
 
@@ -77,8 +74,8 @@ export function generateFavicons(done) {
     online: false,
     icons: {
       android: true,
-      appleIcon: true,
-      appleStartup: true,
+      appleIcon: false,
+      appleStartup: false,
       coast: true,
       favicons: true,
       firefox: true,

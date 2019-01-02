@@ -49,11 +49,6 @@ Mixins
   height: $height;
 }
 
-@mixin size($width, $height){
-  width: $width;
-  height: $height;
-}
-
 
 @mixin font-size($size, $device){
   font-size: (($size * 100) / $device) + vw;

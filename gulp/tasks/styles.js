@@ -1,21 +1,17 @@
 import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-
+import Fontmin from 'fontmin';
 import autoprefixer from 'autoprefixer';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
-
-//import gutil from 'gulp-util';
 import through2 from 'through2';
-
 import preprocessor from 'gulp-sass';
 import sassGlob from 'gulp-sass-glob';
 import header from 'gulp-header';
 import rename from 'gulp-rename';
-
+import concatCss from 'gulp-concat-css';
+import newer from 'gulp-newer';
 import config from '../config';
 import { server } from './serve';
-
 import handleErrors from '../utils/handleErrors';
 
 const envDev = config.args.env === 'dev';
@@ -33,15 +29,8 @@ function getStylesStream() {
         .pipe(preprocessor());
 }
 
-
 export function processStyles() {
   return getStylesStream()
-    // .pipe(plumber({
-    //   errorHandler: function (err) {
-    //     console.log(err);
-    //     this.emit('end');
-    //   }
-    // }))
     .on('error', handleErrors)
     .pipe(postcss(processors))
     .pipe(envDev ? sourcemaps.write() : through2.obj())
@@ -55,6 +44,7 @@ export function processStyles() {
 
 function concatenateFonts() {
   return gulp.src(`${config.dist}/assets/fonts/*.css`)
+    //.pipe(newer(`${config.dist}/assets/fonts`))
     .pipe(concatCss("fonts.css"))
     .pipe(gulp.dest(`${config.dist}/assets/fonts`))
 }
@@ -76,7 +66,6 @@ export function generateFonts(done) {
     }))
     .use(Fontmin.css({
       fontPath: './',
-      //local: true  
     }))
     .dest(`${config.dist}/assets/fonts`)
     if(done) concatenateFonts()

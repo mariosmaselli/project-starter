@@ -21,6 +21,8 @@ function minifyhtml() {
   .on('end', deleteHtml);
 }
 
+minifyhtml.description = 'Minify HTML'
+
 export function markup() {
   return gulp.src(`${config.src}/*.ejs`, {
     base: config.src
@@ -42,8 +44,7 @@ export function markup() {
 
   }, {}, { ext: '.html' }))
   .on('error', handleErrors)
-  .pipe(gulp.dest(config.src))
-  .on('end', minifyhtml);
+  .pipe(gulp.dest(config.dist))
 }
 
 markup.description = 'Process html files with environment configuration.';

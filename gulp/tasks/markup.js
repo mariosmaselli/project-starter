@@ -15,8 +15,7 @@ export function minifyhtml() {
   
 }
 
-minifyhtml.description = 'Minify HTML'
-
+minifyhtml.description = 'Minify HTML Files'
 
 
 export function markup() {

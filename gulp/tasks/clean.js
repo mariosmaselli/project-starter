@@ -6,9 +6,11 @@ import config from '../config';
 
 export function cleanDeleteFiles(done) {
   return del([
-    `${config.dist}/**`,
-    `!${config.dist}`,
-    `!${config.dist}/static/**`,
+    `!${config.dist}/**.html`,
+    `!${config.dist}/scripts/**`,
+    `!${config.dist}/styles/**`,
+    `!${config.dist}/templates/**`,
+    `!${config.dist}/assets/**`,
     '.sass-cache'
   ], done);
 }

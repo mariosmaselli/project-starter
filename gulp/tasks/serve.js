@@ -19,7 +19,7 @@ export function serve(done) {
         extensions: 'html'
       }
     },
-    port: config.port,
+    port: 3002,
   }, done);
 }
 

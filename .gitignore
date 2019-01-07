@@ -2,5 +2,7 @@
 node_modules
 .sass-cache
 dist/*
+!/dist/sw.js
+!/dist/.htaccess
 .gulp
 gulp/utils/passwords.js

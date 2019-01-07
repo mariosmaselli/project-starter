@@ -14,6 +14,10 @@ $semibold: 600;
 $bold: 700;
 $extrabold: 800;
 
+a {
+  color: black;
+}
+
 
 p, li, span, div, a {
   
@@ -23,11 +27,11 @@ p, li, span, div, a {
 
   @include media-query("b-s-up") {
 
-    @include font-size(18, $tablet);
+    @include font-size(16, $tablet);
   }
 
   @include media-query("b-m-up") {
-    @include font-size(18, $desktop);
+    @include font-size(14, $desktop);
   }
 
 }
@@ -36,7 +40,11 @@ p {
   margin-bottom : tovw(30, $mobile);
 
   @include media-query("b-s-up") {
-    margin-bottom : tovw(30, $desktop);
+    margin-bottom : tovw(16, $tablet);
+  }
+
+  @include media-query("b-m-up") {
+    margin-bottom : tovw(14, $desktop);
   }
 
   &:last-of-type {

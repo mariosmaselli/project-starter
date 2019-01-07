@@ -28,7 +28,7 @@ export function watch(done) {
   const watchers = [
 
     // Watch html files
-    gulp.watch(`${config.src}/*.ejs`, gulp.series(markup, reload)),
+    gulp.watch([`${config.src}/*.ejs`, `${config.src}/templates/*.ejs`],  gulp.series(markup, reload)),
 
     // Watch styles files
     gulp.watch(

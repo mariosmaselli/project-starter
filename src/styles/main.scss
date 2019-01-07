@@ -26,13 +26,39 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-html {
-  font-size: ($font / 10px);
-  line-height: 1.2;
-  overflow-y: scroll;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
- 
+html,
+body{
+	overflow: hidden;
 }
 
+html {
+  font: 100%/1.5 $font;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+main {
+  position: fixed;
+  top: 0px;
+  height: 100vh;
+  left: 0px;
+  width: 100%;
+}
+
+.page,
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.vertical {
+
+  text-align:center;
+}
 

@@ -19,7 +19,7 @@ minifyhtml.description = 'Minify HTML Files'
 
 
 export function markup() {
-  return gulp.src(`${config.src}/*.ejs`, {
+  return gulp.src([`${config.src}/*.ejs`, `${config.src}/templates/*.ejs`], {
     base: config.src
   })
   .pipe(ejs({

@@ -10,16 +10,16 @@ export function reload(done) {
 }
 
 export function serve(done) {
-  const logLevel = config.verbose ? 'debug' : 'info';
-
+  
   server.init({
     server: {
       baseDir: config.dist,
-      directory: false
+      directory: false, 
+      serveStaticOptions: {
+        extensions: 'html'
+      }
     },
     port: config.port,
-    logConnections: false,
-    logLevel
   }, done);
 }
 

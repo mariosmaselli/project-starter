@@ -12,8 +12,9 @@
   "license": "MIT",
   "vendors": [],
   "dependencies": {
+    "@dogstudio/highway": "^2.1.1",
     "dom-select": "^1.1.1",
-    "gulp-htmlmin": "^5.0.1",
+    "gsap": "^2.0.2",
     "gulp-tinypng": "git://github.com/mariosmaselli/gulp-tinypng.git",
     "lodash.assign": "^4.2.0",
     "webfontloader": "^1.6.28"
@@ -41,6 +42,7 @@
     "gulp-concat-css": "^3.1.0",
     "gulp-ejs": "^3.3.0",
     "gulp-header": "^2.0.5",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-mocha": "^6.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",

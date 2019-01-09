@@ -1,5 +1,6 @@
 import fs from 'fs';
 import gulp from 'gulp';
+import chalk from 'chalk'
 import tinypng from 'gulp-tinypng';
 import svgmin from 'gulp-svgmin';
 import newer from 'gulp-newer';

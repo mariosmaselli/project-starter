@@ -12,16 +12,20 @@
   "license": "MIT",
   "vendors": [],
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/node": "^7.2.2",
     "@dogstudio/highway": "^2.1.1",
+    "cli-spinner": "^0.2.8",
     "dom-select": "^1.1.1",
     "gsap": "^2.0.2",
     "gulp-tinypng": "git://github.com/mariosmaselli/gulp-tinypng.git",
+    "inquirer": "^6.2.1",
     "lodash.assign": "^4.2.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/preset-env": "^7.1.5",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "@babel/register": "^7.0.0",
     "acorn": "^6.0.4",
     "aliasify": "^2.1.0",
@@ -31,7 +35,7 @@
     "brfs": "^2.0.1",
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "del": "^3.0.0",
     "favicons": "^5.2.0",
     "fontmin": "^0.9.7-beta",
@@ -65,6 +69,7 @@
     "watchify": "^3.11.0"
   },
   "scripts": {
+    "init": "npm i inquirer chalk cli-spinner @babel/node @babel/preset-env && npx babel-node --presets @babel/preset-env -- ./gulp/init/index.js",
     "dev": "NODE_ENV=development gulp --env dev",
     "prod": "NODE_ENV=production gulp --env prod"
   },
@@ -75,11 +80,11 @@
   },
   "config": {
     "verbose": false,
-    "port": 3000,
+    "port": 8000,
     "browsers": [
       "last 2 version"
     ],
-    "prodURL": "http://localhost:3000/",
+    "prodURL": "http://localhost:8000/",
     "shareImageURL": "http://domain.tld/static/share.png",
     "twitterImage": "https://domain.tld/static/twitter.png",
     "twitterHandle": "@domain",
@@ -88,12 +93,13 @@
     "developerURL": ""
   },
   "extensions": {
-    "scripts": "js",
-    "styles": "css"
+    "markup": "ejs"
   },
   "browserify": {
     "transform": [
       "babelify"
     ]
-  }
+  },
+  "port": null,
+  "prodURL": ""
 }

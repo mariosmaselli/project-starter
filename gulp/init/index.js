@@ -28,8 +28,8 @@ const questions = [{
 
 
 function updatePackageFile(appName, url, extensions) {
-  //pkg.title = appName;
-  //pkg.extensions = extensions;
+  pkg.title = appName;
+  pkg.extensions = extensions;
 
   if(url !== 'localhost:8000') {
     pkg.port = null
@@ -65,7 +65,7 @@ function updateSourceFiles(extensions, cb) {
       if( extensions.markup === 'ejs') ext = 'php'
       if( extensions.markup === 'php') ext = 'ejs'
       del([
-        //`${pkg.directories.src}/**/*.(${ext})`,
+        `${pkg.directories.src}/**/*.(${ext})`,
       ], cb());
     } else {
       cb();
@@ -115,7 +115,7 @@ function updateSourceFiles(extensions, cb) {
 function updateDependencies(dependencies, devDependencies) {
 
   let command = '';
-  
+
   if (dependencies.join('') !== '') {
     command += `npm install --save ${dependencies.join(' ')} && `;
   }

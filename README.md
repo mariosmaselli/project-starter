@@ -8,16 +8,16 @@ This is a work in progress. Feel free to contribute.
 ## Install
 ### Requirements
 
-Node (use brew or install it from [here](http://nodejs.org/download/))
+Node (use brew or install it from [here](https://nodejs.org/en/))
 
 ```bash
 brew install node
 ```
 
-Gulp ([Getting started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started))
+Gulp ([Getting started](https://github.com/gulpjs/gulp/tree/master/docs/getting-started))
 
 ```bash
-npm install -g gulpjs/gulp-cli
+install --global gulp-cli
 ```
 
 ### Clone this repository
@@ -30,7 +30,7 @@ git clone https://github.com/mariosmaselli/project-starter.git
 
 ### Start a new project
 
-This step sets up the boilerplate to fit your needs (App Name, JS compiler/transpiler, JS framework, CSS preprocessor). It should only be ran once. 
+This step sets up the boilerplate to fit your needs (App Name,  URL, Markup). It should only be ran once. 
 
 ```bash
 npm run init
@@ -48,8 +48,8 @@ npm install
 
 ### Configuration
 
-|**src**: the source folder path, that's where you write code.|String|src|
-|**dist**: the destination folder path, that's where your code is compiled.|String|dist|
+|**src**: the source folder path, that's where you write code.
+|**dist**: the destination folder path, that's where your code is compiled.
 
 
 ### Tasks
@@ -63,17 +63,12 @@ npm run dev
 ```
 All the magic begins here:
 
-* process `.html` files
-* process `.scss`, `.less` or `.styl` files
-* process `.js` or `.coffee` files
+* process `.ejs` files
+* process `.scss` files
+* process `.js` files
 * create a server with BrowserSync and serve `dist` folder
 * watch changes in source folder
 * reload on changes in source folder
-
-Same as running `gulp --env dev`.
-
----
-Note: if you just want to build the project and serve it, run `npm run prod` then `gulp serve`.
 
 
 #### Make changes

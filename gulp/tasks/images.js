@@ -7,11 +7,16 @@ import cache from 'gulp-cache';
 import favicons from 'favicons';
 import mkdirp from 'mkdirp';
 import config from '../config';
-import passwords from '../utils/passwords';
+//import passwords from '../utils/passwords';
 
-const TINYPNG_API = passwords ? passwords.tinypng : "8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2";
+//Add your own API KEY https://tinypng.com/developers
+const TINYPNG_API =  "8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2"; 
 
 export function optimizeImages() {
+
+  if(TINYPNG_API === "8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2") {
+    console.log(chalk.red('Please update TinyPng Key API'));
+  }
 
   return gulp.src([`${config.src}/assets/images/**/*`, `!${config.src}/assets/{sprite,sprite/**}`, `!${config.src}/assets/{svgs,svgs/**}`])
     .pipe(newer(`${config.dist}/assets/images`))

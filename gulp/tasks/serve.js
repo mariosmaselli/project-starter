@@ -11,16 +11,28 @@ export function reload(done) {
 
 export function serve(done) {
   
-  server.init({
-    server: {
-      baseDir: config.dist,
-      directory: false, 
-      serveStaticOptions: {
-        extensions: 'html'
-      }
-    },
-    port: 3002,
-  }, done);
+  if(config.port === null) {
+    
+    server.init({
+      proxy: config.prodURL,
+    }, done);
+
+  }else {
+
+    server.init({
+      server: {
+        baseDir: config.dist,
+        directory: false, 
+        serveStaticOptions: {
+          extensions: 'html'
+        }
+      },
+      port: config.port,
+    }, done);
+
+  }
+
+  
 }
 
 serve.description = 'Serve dist directory using browserSync.';

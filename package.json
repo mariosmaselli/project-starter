@@ -32,7 +32,7 @@
     "autoprefixer": "^9.3.1",
     "babelify": "^10.0.0",
     "beeper": "^1.1.1",
-    "brfs": "^2.0.1",
+    "brfs": "^2.0.2",
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
     "chalk": "^2.4.2",
@@ -66,7 +66,7 @@
     "through2": "^3.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0"
+    "watchify": "^3.11.1"
   },
   "scripts": {
     "init": "npm i inquirer chalk cli-spinner @babel/node @babel/preset-env && npx babel-node --presets @babel/preset-env -- ./gulp/init/index.js",

@@ -21,7 +21,7 @@ class App {
 
   init() {
 
-    SW()
+    //SW()
     //loadWebFonts()
     this.bindElements()
     this.addEvents()

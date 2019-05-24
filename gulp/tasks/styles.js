@@ -9,6 +9,7 @@ import sassGlob from 'gulp-sass-glob';
 import header from 'gulp-header';
 import rename from 'gulp-rename';
 import concatCss from 'gulp-concat-css';
+import cssnano from 'cssnano';
 import newer from 'gulp-newer';
 import config from '../config';
 import { server } from './serve';
@@ -16,11 +17,22 @@ import handleErrors from '../utils/handleErrors';
 
 const envDev = config.args.env === 'dev';
 
-let processors = [
-  autoprefixer({
-    browsers: config.browsers
-  })
-];
+// Processors
+if (envDev) {
+  processors = [
+    autoprefixer({
+      browsers: config.browsers
+    })
+  ];
+} else {
+  processors = [
+    autoprefixer({
+      browsers: config.browsers
+    }),
+    cssnano()
+  ];
+}
+
 
 function getStylesStream() {
   return gulp.src(`${config.src}/styles/main.scss`)

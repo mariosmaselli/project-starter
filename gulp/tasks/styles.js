@@ -17,6 +17,12 @@ import handleErrors from '../utils/handleErrors';
 
 const envDev = config.args.env === 'dev';
 
+let processors = [
+  autoprefixer({
+    browsers: config.browsers
+  })
+];
+
 // Processors
 if (envDev) {
   processors = [
